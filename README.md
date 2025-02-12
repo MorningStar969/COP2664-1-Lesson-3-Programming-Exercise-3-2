@@ -5,28 +5,40 @@ This is a GitHub repository link for Programming Exercise 3.2 of Lesson 3.
 
 let timeOfDay = "night" // or "day"
 
-let age = 60 // or any other age
+let age = 25 // or any other age
 
-var ticketPrice: Double = 0.0 // or any other price
-
-switch timeOfDay.lowercased() { // or .uppercased()
-   case "day": // or "night"
-       if age < 4 { // or any other age
-           ticketPrice = 0.0 // or any other price
-       } else { // or any other age
-           ticketPrice = 8.0 // or any other price
-       }
-   case "night": // or "day"
-       if age < 4 { // if age is less than 4
-           ticketPrice = 0.0 // it will be free
-       } else if age >= 4 && age <= 16 { // if age is between 4 and 16
-           ticketPrice = 12.0 // it will be $12
-       } else if age >= 17 && age <= 54 { // if age is between 17 and 54
-           ticketPrice = 15.0 // it will be $15
-       } else { // if age is greater than 54
-           ticketPrice = 13.0 // it will be $13
-       }
-   default: // if timeOfDay is not "day" or "night"
-       print("Invalid entry") // it will print "Invalid entry"
+var ticketPrice: Double = 0.0 
+switch timeOfDay.lowercased() {
+  // day time price is $8 for everyone age 4 or higher
+case "day":
+    if age >= 4 {
+        ticketPrice = 8.00
+    } else {
+        ticketPrice = 0.0 // free for anyone under age 4
+    }
+case "night":
+   // nighttime price based on age ranges
+   switch age {
+   case 4...16:
+      ticketPrice = 12.0
+   case 17...54:
+      ticketPrice = 15.0
+   case _ where age >= 55:
+      ticketPrice = 13.0
+   default:
+      ticketPrice = 0.0 // free for anyone under age 4
 }
-print("The ticket price is $\(ticketPrice)") // it will print the ticket price
+default:
+   print("Invalid time of day entered.")
+   ticketPrice = -1.0 // invalid time input
+}
+if age >= 4 && age <= 16 { // children age 4 to 16
+    ticketPrice = 12.0 // children ticket price
+} else if age >= 17 && age <= 54 { // adult age 17 to 54
+    ticketPrice = 15.0 // adult ticket price
+} else if age >= 55 { // senior age 55 and above
+    ticketPrice = 13.0 // senior ticket price
+} else {
+    ticketPrice = 0.0 // invalid age
+}
+print("The ticket price is $\(ticketPrice)" ) // output the ticket price
