@@ -1,8 +1,6 @@
 # COP2664-1-Lesson-3-Programming-Exercise-3-2
 This is a GitHub repository link for Programming Exercise 3-2 of Lesson 3.
 
-// This program is used to calculate the price of a movie ticked based on the age of the customer and the time the movie is playing.
-
 // This program is used to determine the price of a movie ticket based on the age of the customer and what time of day it is whether the movie starts at daytime or nighttime.
 
 let timeOfDay = "night" // or "day"
