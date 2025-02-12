@@ -8,7 +8,7 @@ let timeOfDay = "night" // or "day"
 let age = 25 // or any other age
 
 var ticketPrice: Double = 0.0 
-switch timeOfDay.lowercased(){
+switch timeOfDay.lowercased() {
   // day time price is $8 for everyone age 4 or higher
 case "day":
     if age >= 4 {
